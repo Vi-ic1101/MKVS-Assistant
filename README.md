@@ -1,4 +1,4 @@
-hello everyone
-this is just a sample repository
-main repository will be different and created accordingly 
-plz accept the collaboration request as informed 
+hello everyone<br>
+this is just a sample repository<br>
+main repository will be different and created accordingly <br>
+plz accept the collaboration request as informed <br>
