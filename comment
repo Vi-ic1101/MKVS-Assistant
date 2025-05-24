@@ -1,0 +1,64 @@
+   while (!exit && (newS = mySpeech.getResult()) != null) {
+                String myVoice = newS.getHypothesis();
+                System.out.println("given voice : " + myVoice);
+                switch (myVoice.toLowerCase()) {
+
+                    case "open settings":
+                        speak(marytts,"opening settings");
+                        Runtime.getRuntime().exec("cmd.exe /c start ms-settings:");
+                        break;
+
+                    case "close settings":
+                        speak(marytts,"closing settings");
+                        Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM SystemSettings.exe /F");
+                        break;
+
+                    case "open chrome":
+                        speak(marytts,"opening chrome");
+                        Runtime.getRuntime().exec("cmd.exe /c start chrome.exe");
+                        break;
+
+                    case "close chrome":
+                        speak(marytts,"closing settings");
+                        Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM chrome.exe /F");
+                        break;
+
+                    case "open youtube":
+                        speak(marytts,"opening youtube");
+                        speak(marytts,"what should i search for");
+                        SpeechResult ytQuery = mySpeech.getResult();
+                        if(ytQuery!=null){
+                            String ytSearch = ytQuery.getHypothesis();
+                            speak(marytts,"serching on youtube "+ytSearch);
+                            String urL="https://www.youtube.com/results?search_query=" + ytSearch.replace(" ","+");
+                            Runtime.getRuntime().exec("cmd.exe /c start "+ urL);
+                        }else{
+                            speak(marytts,"sorry i dont get it");
+                        }
+
+                        break;
+
+                    case "close youtube":
+                        speak(marytts,"closing settings");
+                        Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM youtube.com /F");
+                        break;
+
+                    case "bye":
+                        speak(marytts,"thank you");
+                        exit = true;
+                        break;
+
+                    default:
+                        speak(marytts,"Invalid Command");
+                        break;
+                }
+            }
+
+        } catch (IOException e) {
+            System.err.println("Error during recognition:");
+            e.printStackTrace();
+        } catch (MaryConfigurationException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
