@@ -42,32 +42,39 @@ public class MainWork{
 
 
 class SpeechConfig{
+    // Static method to create and return a configured CMU Sphinx Configuration object
     public static Configuration getConfiguration(){
         Configuration config = new Configuration();
+         // Set the path to the acoustic model used for speech recognition
         config.getAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
+        // Set the path to the pronunciation dictionary (maps words to their phonemes)
         config.getDictionaryPath("src/main/resources/project.dic");
+        // Set the path to the language model (defines word probabilities for recognition)
         config.getLanguageModelPath("src/main/resources/project.lm");
-        return config;
+        return config; // Return the fully configured object
     }
 }
 
 
 class Speaker {
+     // Static method to synthesize speech from text using MaryTTS
    public static void speak(MaryInterface marytts, String text){
        try{
+           // Generate audio from input text using MaryTTS
            AudioInputStream audio = marytts.generateAudio(text);
+           // Get the format of the generated audio
            AudioFormat originalFormat = audio.getFormat();
-
+// Convert to PCM signed format (required for most audio playback systems)
            AudioFormat pcmFormat= new AudioFormat(
-                   AudioFormat.encoding.PCM_SIGNED,
-                   originalFormat.getSampleRate();
-                   sampleSizeInBits:16;
-                   OriginalFormat.getChannels(),
-                   OriginalFormat.getChannels()*2,
-                   originalFormat.getSampleRate(),
-                   bigEndian:false
+                   AudioFormat.encoding.PCM_SIGNED,              // Encoding type
+                   originalFormat.getSampleRate();               // Sample rate (Hz)
+                   sampleSizeInBits:16;                          // Sample size in bits
+                   OriginalFormat.getChannels(),                 // Number of channels
+                   OriginalFormat.getChannels()*2,               // Frame size (bytes)
+                   originalFormat.getSampleRate(),               // Frame rate (same as sample rate)
+                   bigEndian:false                               // Little-endian byte order
            );
-
+//Convert to PCM format if needed
            AudioInputStream pcmAudio=AudioSystem.getAudioInputStream(pcmFormat, audio);
 
            DataLine.Info info = new DataLine.Info(SourceDataLine.class,pcmFormat);
