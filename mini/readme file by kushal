@@ -1,1 +1,56 @@
+ while (!exit && (newS = mySpeech.getResult()) != null) {
+                String myVoice = newS.getHypothesis();
+                System.out.println("given voice : " + myVoice);
+                switch (myVoice.toLowerCase()) {
+
+                    case "open settings":
+                        speak(marytts,"Sure, opening settings for you");
+                        Runtime.getRuntime().exec("cmd.exe /c start ms-settings:");
+                        break;
+
+                    case "close settings":
+                        speak(marytts,"closing settings now ");
+                        Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM SystemSettings.exe /F");
+                        break;
+
+                    case "open chrome":
+                        speak(marytts,"Launching chrome");
+                        Runtime.getRuntime().exec("cmd.exe /c start chrome.exe");
+                        break;
+
+                    case "close chrome":
+                        speak(marytts,"closing settings");
+                        Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM chrome.exe /F");
+                        break;
+
+                    case "open youtube":
+                        speak(marytts,"opening youtube . What should i search for ?");
+                        speak(marytts,"what should i search for");
+                        SpeechResult ytQuery = mySpeech.getResult();
+                        if(ytQuery!=null){
+                            String ytSearch = ytQuery.getHypothesis();
+                            speak(marytts,"serching on youtube "+ytSearch);
+                            String urL="https://www.youtube.com/results?search_query=" + ytSearch.replace(" ","+");
+                            Runtime.getRuntime().exec("cmd.exe /c start "+ urL);
+                        }else{
+                            speak(marytts,"Sorry , I didn't catch that");
+                        }
+
+                        break;
+
+                    case "close youtube":
+                        speak(marytts,"closing settings");
+                        Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM youtube.com /F");
+                        break;
+
+                    case "bye":
+                        speak(marytts,"Goodbye , have a great day !");
+                        exit = true;
+                        break;
+
+                    default:
+                        speak(marytts,"Sorry , i didn't understand that Command");
+                        break;
+                }
+            }
 
