@@ -1,6 +1,7 @@
 //don't touch
-// this is under MAYANK\
+// this is under MAYANK 
 
 
-line 33 ---Set audio sample rate to improve audio quality
-                     
+line 33 ---//Set audio sample rate to improve audio quality
+line 34 ---//Set audio bit depth
+line 35 ---// Disable default audio mixers to avoid audio issues
