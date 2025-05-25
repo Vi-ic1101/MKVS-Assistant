@@ -5,3 +5,26 @@
 line 33 ---//Set audio sample rate to improve audio quality
 line 34 ---//Set audio bit depth
 line 35 ---// Disable default audio mixers to avoid audio issues
+line 39---// Set path to acoustic model used for speech recognition
+line 40---// Set path to the pronunciation dictionary
+line 41---// Set path to the language model
+line 45---// Create MaryTTS interface for speech synthesis
+line 48---// Set TTS voice
+line 49---// Apply audio effect (reduce volume to avoid crackling)
+line 51---// Speak a message using MaryTTS 
+line 53---// Initialize live speech recognizer with the configuration
+line 54---// Start listening to live speech (blocking call)
+line 56---// Placeholder for recognized speech result
+line 58--- // Flag to control recognition loopline 61---// Get recognized speech as text
+line 63---// Handle commands based on voice input
+line 66---// Open Windows Settings
+line 71---// Close Windows Settings
+line 76--- // Open Google Chrome
+line 81---// Close Google Chrome
+line 86---// Open YouTube and ask user what to search
+line 95 ---// If no search query is understood
+line 101--- // Attempt to close YouTube browser tab (Note: This won't work directly like that)
+line 106---// Exit the loop and end the program
+line 111---// Handle unrecognized commands
+line 117---// Handle input/output exceptions
+line 120---// Handle MaryTTS configuration errors
