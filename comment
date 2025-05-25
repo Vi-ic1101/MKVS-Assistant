@@ -1,7 +1,14 @@
 //don't touch
 // this is under MAYANK 
 
-
+line 3---// Standard Java I/O
+line 5---// CMU Sphinx classes for speech recognition
+line 9---// MaryTTS classes for speech synthesis
+line 13---// Utility for playing audio
+line 14---// Java Sound API for handling audio streams
+line 17---// For audio data manipulation (optional/advanced use)
+line 19---// To save audio in specific formats
+line 21---// Selenium WebDriver (commented out — can be enabled for browser automation)
 line 33 ---//Set audio sample rate to improve audio quality
 line 34 ---//Set audio bit depth
 line 35 ---// Disable default audio mixers to avoid audio issues
@@ -15,7 +22,8 @@ line 51---// Speak a message using MaryTTS
 line 53---// Initialize live speech recognizer with the configuration
 line 54---// Start listening to live speech (blocking call)
 line 56---// Placeholder for recognized speech result
-line 58--- // Flag to control recognition loopline 61---// Get recognized speech as text
+line 58--- // Flag to control recognition loop
+line 61---// Get recognized speech as text
 line 63---// Handle commands based on voice input
 line 66---// Open Windows Settings
 line 71---// Close Windows Settings
@@ -28,3 +36,14 @@ line 106---// Exit the loop and end the program
 line 111---// Handle unrecognized commands
 line 117---// Handle input/output exceptions
 line 120---// Handle MaryTTS configuration errors
+line129---// Generate speech audio from the input text
+line132---// Get the original audio format
+line135---// Define a standard PCM format (16-bit signed, little endian)
+line138---// 16-bit depth
+line140---// Frame size in bytes
+line142---// Little-endian byte order
+line146---// Convert to PCM format if needed
+line157---  // Prepare a SourceDataLine to play the audio
+line165--- // Stream audio data to speakers
+line172---// Finish and release resources
+line185---// Fallback: use default AudioPlayer if playback fails
